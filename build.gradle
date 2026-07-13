@@ -19,8 +19,6 @@ plugins {
 
 group = 'co.com.dvc'
 version = '1.0.0'
-sourceCompatibility = JavaVersion.VERSION_25
-targetCompatibility = JavaVersion.VERSION_25
 
 repositories {
     mavenCentral()
@@ -45,9 +43,15 @@ dependencies {
     // Jakarta
     api "jakarta.validation:jakarta.validation-api:${jakartaValidation}"
     api "jakarta.annotation:jakarta.annotation-api:${jakartaAnnotationVersion}"
+
+    // Apache Commons
+    implementation "commons-beanutils:commons-beanutils:1.11.0"
+    implementation "commons-codec:commons-codec:1.17.1"
 }
 
 java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
     withSourcesJar()
     withJavadocJar()
 }
@@ -60,5 +64,4 @@ publishing {
     }
 }
 
-bootJar { enabled = false }
 jar { enabled = true }
